@@ -16,3 +16,15 @@ Lists the hosts inside of the "inventory" file.
 
 This gathers all of the important data about the remote hosts.
 * ansible all -m gather_facts
+
+This command uses the module (-m) apt to update the packages. To make changes to a remote server, elevated privilages are needed as the sudo user (--become) using the sudo password (--ask-become-pass)
+* ansible all -m apt -a update_cache=true --become --ask-become-pass
+
+Install a specified package using module apt with (-a name=<PACKAGE NAME>) as sudo user.
+* ansible all -m apt -a name=htop  --become --ask-become-pass
+
+Upgrading a pacakge to the latest version. More than one argument requires double quotes.
+* ansible all -m apt -a "name=git state=latest"  --become --ask-become-pass
+
+Upgrades all of the packages.
+* ansible all -m apt -a "upgrade=dist"  --become --ask-become-pass
