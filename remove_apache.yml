@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Update Repository Index
+    apt:
+      update_cache: yes
+
+  - name: Uninstall apache2 package
+    apt:
+      name: apache2
+      state: absent
+
+  - name: Uninstall php support for Apache
+    apt:
+      name: libapache2-mod-php
+      state: absent

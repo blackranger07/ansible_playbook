@@ -28,3 +28,6 @@ Upgrading a pacakge to the latest version. More than one argument requires doubl
 
 Upgrades all of the packages.
 * ansible all -m apt -a "upgrade=dist"  --become --ask-become-pass
+
+To Run Playbooks:
+* ansible-playbook --ask-become-pass PLAYBOOKNAME.yml
