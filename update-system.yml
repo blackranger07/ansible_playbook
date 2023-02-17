@@ -1,0 +1,23 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: Update Repository Index
+    apt:
+      update_cache: yes
+
+  - name: Update all packages to their latest version.
+    apt:
+      name: "*"
+      state: latest
+
+  - name: Upgrade the system (apt dist-upgrade).
+    apt:
+      upgrade: dist
+
+  - name: Autoremove packages that are no longer needed.
+    apt:
+      autoremove: yes
+
