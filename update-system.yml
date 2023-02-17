@@ -15,7 +15,7 @@
 
   - name: Upgrade the system (apt dist-upgrade).
     apt:
-      upgrade: dist
+      upgrade: "dist"
 
   - name: Autoremove packages that are no longer needed.
     apt:
