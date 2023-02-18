@@ -1,0 +1,83 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Upgrade ubuntu-advantage-desktop-daemon Package
+    apt:
+      name: ubuntu-advantage-desktop-daemon
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade gnome-remote-desktop Package
+    apt:
+      name: gnome-remote-desktop
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade python-apt-common Packages
+    apt:
+      name: python-apt-common
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+      
+  - name: Upgrade python3-apt Packages
+    apt:
+      name: python3-apt
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+      
+  - name: Upgrade python3-software-properties Packages
+    apt:
+      name: python3-software-properties
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+     
+  - name: Upgrade software-properties-common Packages
+    apt:
+      name: software-properties-common
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade software-properties-gtk Packages
+    apt:
+      name: software-properties-gtk
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade update-notifier-common Packages
+    apt:
+      name: update-notifier-common
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade update-notifier Packages
+    apt:
+      name: update-notifier
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade shim-signed Packages
+    apt:
+      name: shim-signed
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade grub-efi-amd64-bin Packages
+    apt:
+      name: grub-efi-amd64-bin
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade grub-efi-amd64-signed Packages
+    apt:
+      name: grub-efi-amd64-signed
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Upgrade fwupd-signed Packages
+    apt:
+      name: fwupd-signed
+      state: latest
+    when: ansible_distribution == "Ubuntu"
