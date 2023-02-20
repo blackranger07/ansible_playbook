@@ -24,16 +24,16 @@
   - name: Update Repository Index
     dnf:
       update_cache: yes
-    when: ansible_distribution == "CentOS"
+    when: ansible_distribution == "Rocky"
 
   - name: installs apache2 package
     dnf:
       name: httpd
       state: latest
-    when: ansible_distribution == "CentOS"
+    when: ansible_distribution == "Rocky"
 
   - name: PHP support for Apache
     apt:
       name: php
       state: latest
-    when: ansible_distribution == "CentOS"
+    when: ansible_distribution == "Rocky"

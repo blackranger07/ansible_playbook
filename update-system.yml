@@ -4,24 +4,46 @@
   become: yes
   tasks:
 
-  - name: Update Repository Index
+  - name: Update Ubuntu Repository Index
     apt:
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: Update all packages to their latest version.
+  - name: Update all Ubuntu packages to their latest version.
     apt:
       name: "*"
       state: latest
     when: ansible_distribution == "Ubuntu"
 
-  - name: Upgrade the system (apt dist-upgrade).
+  - name: Upgrade the Ubuntu system (apt dist-upgrade).
     apt:
       upgrade: "dist"
       state: latest
     when: ansible_distribution == "Ubuntu"
 
-  - name: Autoremove packages that are no longer needed.
+  - name: Autoremove Ubuntu packages that are no longer needed.
     apt:
       autoremove: yes
     when: ansible_distribution == "Ubuntu"
+
+  - name: Update Rocky Repository Index
+    dnf:
+      update_cache: yes
+    when: ansible_distribution == "Rocky"
+
+  - name: Upgrade all Rocky packages to their latest version.
+    dnf:
+      name: "*"
+      state: latest
+    when: ansible_distribution == "Rocky"
+
+  - name: Update only installed Rocky packages.
+    dnf:
+      update_only: true 
+      state: latest
+    when: ansible_distribution == "Rocky"
+
+  - name: Autoremove Rocky packages that are no longer needed.
+    dnf:
+      autoremove: yes
+    when: ansible_distribution == "Rocky"
