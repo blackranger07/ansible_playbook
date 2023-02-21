@@ -1,0 +1,12 @@
+---
+# Updates all systems regardless of distribution.
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Update System Packages
+    package:
+      update_cache: yes
+      name: "*"
+      state: latest
+      #upgrade: "dist"
