@@ -4,16 +4,11 @@
   become: true
   tasks:
 
-  - name: Update Repository Index
-    apt:
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
-
-  - name: Uninstall apache2 and php packages
-    apt:
+  - name: Uninstall apache and php packages
+    package:
       name: 
-        - apache2
-        - libapache2-mod-php
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
       state: absent
-    when: ansible_distribution == "Ubuntu"
+      update_cache: yes
 

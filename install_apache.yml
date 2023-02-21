@@ -4,29 +4,11 @@
   become: true
   tasks:
 
-  - name: Update Ubuntu Repository Index
-    apt:
+  - name: Install apache and php packages
+    package:
       update_cache: yes
-    when: ansible_distribution == "Ubuntu"
-
-  - name: Install apache2 and php packages for Ubuntu
-    apt:
       name:
-        - apache2
-        - libapache2-mod-php
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
       state: latest
-    when: ansible_distribution == "Ubuntu"
-
-  - name: Update Rocky Repository Index
-    dnf:
-      update_cache: yes
-    when: ansible_distribution == "Rocky"
-
-  - name: Installs apache2 and php packaages for Rocky.
-    dnf:
-      name:
-        - httpd
-        - php
-      state: latest
-    when: ansible_distribution == "Rocky"
 
