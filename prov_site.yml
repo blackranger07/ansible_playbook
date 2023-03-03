@@ -11,10 +11,10 @@
         update_cache: yes
       when: ansible_distribution == "Rocky"
     
-    - name: Install updates (Ubuntu)
+    - name: Perform package upgrades (Ubuntu)
       tags: always
       apt:
-        upgrade: "no"
+        upgrade: "safe"
         update_cache: yes
       when: ansible_distribution == "Ubuntu"
 
