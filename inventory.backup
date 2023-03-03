@@ -1,3 +1,0 @@
-10.10.10.10 apache_package=apache2 php_package=libapache2-mod-php
-10.10.10.24 apache_package=apache2 php_package=libapache2-mod-php
-10.10.10.33 apache_package=httpd php_package=php
