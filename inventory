@@ -1,8 +1,0 @@
-[web_servers]
-10.10.10.10
-
-[db_servers]
-10.10.10.24
-
-[file_servers]
-10.10.10.33
