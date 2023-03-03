@@ -14,7 +14,7 @@
     - name: Install updates (Ubuntu)
       tags: always
       apt:
-        upgrade: "dist"
+        upgrade: "no"
         update_cache: yes
       when: ansible_distribution == "Ubuntu"
 
@@ -72,6 +72,7 @@
     when: ansible_distribution == "Rocky"
   
   - name: Install samba package (Ubuntu)
+    tags: samba
     apt:
       name: samba
       state: latest
