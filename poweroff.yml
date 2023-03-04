@@ -1,0 +1,9 @@
+---
+#Power off the Machines.
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Shutdown Server(s).
+    community.general.shutdown:
+

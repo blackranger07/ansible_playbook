@@ -1,0 +1,10 @@
+---
+#Reboot servers
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Reboot Hosts
+    ansible.builtin.reboot:
+      msg: "Reboot initiated by Ansible."
+      test_command: "touch ~/It-worked.txt"
